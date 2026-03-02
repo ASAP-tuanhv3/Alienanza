@@ -30,6 +30,11 @@
           "$path": "src/scripts/Client"
         }
       }
+    },
+    "ReplicatedStorage": {
+      "Assets": {
+        "$path": "src/assets/models"
+      }
     }
   }
 }
