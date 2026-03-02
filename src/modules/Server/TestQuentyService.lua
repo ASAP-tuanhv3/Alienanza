@@ -26,10 +26,12 @@ function TestQuentyService.Init(self: TestQuentyService, serviceBag: ServiceBag.
 
 	-- Internal
 	self._serviceBag:GetService(require("CoinService"))
+	self._serviceBag:GetService(require("MovingPlatformService"))
 	self._serviceBag:GetService(require("PlayerDataService"))
 	self._serviceBag:GetService(require("SoundService"))
 	self._serviceBag:GetService(require("SpikeBlockService"))
 	self._serviceBag:GetService(require("TestQuentyTranslator"))
+	self._serviceBag:GetService(require("WinConditionService"))
 end
 
 return TestQuentyService

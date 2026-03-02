@@ -30,10 +30,12 @@ function TestQuentyServiceClient.Init(self: TestQuentyServiceClient, serviceBag:
 	self._serviceBag:GetService(require("CoinServiceClient"))
 	self._serviceBag:GetService(require("GameCameraClient"))
 	self._serviceBag:GetService(require("LoadingScreenServiceClient"))
+	self._serviceBag:GetService(require("MovingPlatformServiceClient"))
 	self._serviceBag:GetService(require("PlayerDataClient"))
 	self._serviceBag:GetService(require("SoundServiceClient"))
 	self._serviceBag:GetService(require("SpikeBlockServiceClient"))
 	self._serviceBag:GetService(require("TestQuentyTranslator"))
+	self._serviceBag:GetService(require("WinConditionServiceClient"))
 end
 
 return TestQuentyServiceClient
