@@ -1,13 +1,5 @@
 {
   "name": "TestQuenty",
-  "globIgnorePaths": [
-    "**/.package-lock.json",
-    "**/.pnpm",
-    "**/.pnpm-workspace-state-v1.json",
-    "**/.modules.yaml",
-    "**/.ignored",
-    "**/.ignored_*"
-  ],
   "tree": {
     "$className": "DataModel",
     "Lighting": {
@@ -16,11 +8,12 @@
     },
     "MaterialService": {
       "$ignoreUnknownInstances": true,
-      "$path": "src/materialService"
+      "$path": "src/material"
     },
-    "Workspace": {
-      "$ignoreUnknownInstances": true,
-      "$path": "src/workspace"
+    "ReplicatedStorage": {
+      "Assets": {
+        "$path": "src/assets/models"
+      }
     },
     "ServerScriptService": {
       "TestQuenty": {
@@ -43,10 +36,58 @@
         }
       }
     },
-    "ReplicatedStorage": {
-      "Assets": {
-        "$path": "src/assets/models"
-      }
+    "Workspace": {
+      "$properties": {
+        "NextGenerationReplication": {
+          "Enum": 0
+        },
+        "PlayerScriptsUseInputActionSystem": {
+          "Enum": 0
+        },
+        "UseFixedSimulation": {
+          "Enum": 0
+        },
+        "UseNewLuauTypeSolver": "Disabled",
+        "WorldPivotData": {
+          "OptionalCFrame": {
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      },
+      "$attributes": {
+        "Rojo_Target_CurrentCamera": "21bc6533b95e010309b6cdb70000039f"
+      },
+      "$ignoreUnknownInstances": true,
+      "$path": "src/workspace"
     }
-  }
+  },
+  "globIgnorePaths": [
+    "**/.package-lock.json",
+    "**/.pnpm",
+    "**/.pnpm-workspace-state-v1.json",
+    "**/.modules.yaml",
+    "**/.ignored",
+    "**/.ignored_*"
+  ]
 }
