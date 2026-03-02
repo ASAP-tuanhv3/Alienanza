@@ -1,0 +1,48 @@
+{
+  "name": "testquenty",
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.27.0",
+  "description": "",
+  "keywords": [
+    "Roblox",
+    "Nevermore",
+    "Lua"
+  ],
+  "license": "UNLICENSED",
+  "scripts": {
+    "build:sourcemap": "rojo sourcemap default.project.json --output sourcemap.json --absolute",
+    "format": "stylua --config-path=stylua.toml src",
+    "lint:luau": "luau-lsp analyze --sourcemap=sourcemap.json --base-luaurc=.luaurc --defs=globalTypes.d.lua --flag:LuauSolverV2=false --ignore=**/node_modules/** --ignore=**/*.story.lua --ignore=**/*.client.lua --ignore=**/*.server.lua src",
+    "lint:moonwave": "moonwave-extractor extract src",
+    "lint:selene": "selene --no-summary --config=selene.toml src",
+    "lint:stylua": "stylua --config-path=stylua.toml --check src",
+    "prelint:selene": "selene generate-roblox-std",
+    "prelint:luau": "npm run build:sourcemap && npx @quenty/nevermore-cli tools download-roblox-types",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "dependencies": {
+    "@quenty/baseobject": "^10.12.0",
+    "@quenty/basicpane": "^13.28.0",
+    "@quenty/binder": "^14.32.0",
+    "@quenty/bindtocloseservice": "^8.28.0",
+    "@quenty/blend": "^12.32.0",
+    "@quenty/characterutils": "^12.29.0",
+    "@quenty/clienttranslator": "^14.33.0",
+    "@quenty/cmdrservice": "^13.39.0",
+    "@quenty/loader": "^10.10.0",
+    "@quenty/maid": "^3.8.0",
+    "@quenty/playerutils": "^8.29.0",
+    "@quenty/promise": "^10.16.0",
+    "@quenty/remoting": "^12.29.0",
+    "@quenty/rx": "^13.26.0",
+    "@quenty/servicebag": "^11.16.0",
+    "@quenty/soundgroup": "^1.36.0",
+    "@quenty/soundplayer": "^7.35.0",
+    "@quenty/sounds": "^10.19.0",
+    "@quenty/spring": "^10.11.0",
+    "@quenty/valueobject": "^13.28.0"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  }
+}

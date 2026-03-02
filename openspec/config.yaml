@@ -1,0 +1,33 @@
+schema: spec-driven
+
+context: |
+  Tech stack: Luau (strict mode), Roblox, Nevermore Engine (@quenty/* packages)
+  Build: Rojo, pnpm, Aftman
+  Linting: Selene, luau-lsp, StyLua, Moonwave
+  Architecture: ServiceBag (DI), Binders (CollectionService), require-by-name via loader
+  Conventions: PascalCase classes, dot-syntax methods with explicit self typing, tab indentation
+  Commits: Conventional commits (feat/fix/chore)
+  See CLAUDE.md for full coding conventions and templates.
+
+rules:
+  proposal:
+    - Consult openspec/specs/nevermore-packages.md to find relevant @quenty/* packages for the task
+    - If compatible packages exist, identify them and explain their relevance
+    - If no compatible packages exist, proceed with standard implementation
+    - Always include a "Nevermore Packages" section listing packages to use or confirming none apply
+  design:
+    - For each @quenty/* package selected, look up its API at https://quenty.github.io/NevermoreEngine/api/<ClassName> using WebFetch
+    - Only fall back to reading source files in node_modules/@quenty/<package>/src/ if the docs page is missing or unclear
+    - Follow Nevermore architecture patterns (ServiceBag, Binders, loader)
+    - Reference CLAUDE.md templates for services, binders, and type patterns
+    - All new modules must use --!strict and Moonwave docstrings
+  tasks:
+    - Check package.json for already-installed @quenty/* packages before adding install tasks; only include an install task for packages not yet present
+    - Every tasks.md MUST include these mandatory sections in order after implementation tasks:
+        1. "Unit Tests" section — create .spec.lua test files using the TestEZ framework (see CLAUDE.md "Testing (TestEZ)" section for template and conventions)
+        2. "MCP Validation" section — run each test file via `run_script_in_play_mode` using TestBootstrap:run() and verify all tests pass
+        3. "Final Review" section — confirm all tests pass, MCP validation succeeds, linting is clean, and the change is production-ready
+    - Unit test files must use TestEZ describe/it/expect syntax and be placed next to the module they test with a .spec suffix (e.g., SoundConstants.spec.lua)
+    - MCP validation tasks must actually execute via the Roblox MCP server — never mark them complete without running them
+    - A change is only complete when all unit tests pass, all MCP validations succeed, and implementation is bug-free
+    - Do NOT skip or defer test/validation tasks — they are blocking requirements, not optional
