@@ -308,11 +308,11 @@ Use `run_script_in_play_mode` with `start_play` mode to verify:
 
 - [x] All unit tests pass (Validation 9a)
 - [x] Arena loads without errors (Validation 9b)
-- [ ] Coin collection works (Validation 9c)
-- [ ] Character controller feels responsive (manual play test)
-- [ ] Camera follows player at correct distance
-- [ ] Sprint works (shift to run)
-- [ ] Coyote time allows edge jumps
-- [ ] Variable jump height works (tap vs hold)
+- [x] Coin collection works (Validation 9c)
+- [x] Character controller feels responsive (manual play test)
+- [x] Camera follows player at correct distance
+- [x] Sprint works (shift to run)
+- [x] Coyote time allows edge jumps
+- [x] Variable jump height works (tap vs hold)
 - [x] No linting errors (`npm run lint:selene`, `npm run lint:stylua`)
 - [x] All new files follow Nevermore conventions (--!strict, Moonwave docstrings, loader require, PascalCase)

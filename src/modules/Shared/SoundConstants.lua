@@ -39,9 +39,10 @@ SoundConstants.Sounds = Table.readonly({
 
 	-- Music
 	MainTheme = Table.readonly({
-		SoundId = "rbxassetid://1837849285",
+		SoundId = "rbxassetid://140348392510911",
 		Group = WellKnownSoundGroups.MUSIC,
 		Looped = true,
+		Volume = 0.1,
 	} :: SoundEntry),
 
 	-- Ambient (using SFX group)
@@ -60,9 +61,15 @@ SoundConstants.Sounds = Table.readonly({
 	} :: SoundEntry),
 
 	CoinCollect = Table.readonly({
-		SoundId = "rbxassetid://6895079853",
+		SoundId = "rbxassetid://135483737426662",
 		Group = WellKnownSoundGroups.SFX,
 		Volume = 0.5,
+	} :: SoundEntry),
+
+	SpikeBlockHit = Table.readonly({
+		SoundId = "rbxassetid://135663378635164",
+		Group = WellKnownSoundGroups.SFX,
+		Volume = 0.6,
 	} :: SoundEntry),
 })
 

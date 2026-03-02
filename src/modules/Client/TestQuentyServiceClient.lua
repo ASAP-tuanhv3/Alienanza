@@ -32,6 +32,7 @@ function TestQuentyServiceClient.Init(self: TestQuentyServiceClient, serviceBag:
 	self._serviceBag:GetService(require("LoadingScreenServiceClient"))
 	self._serviceBag:GetService(require("PlayerDataClient"))
 	self._serviceBag:GetService(require("SoundServiceClient"))
+	self._serviceBag:GetService(require("SpikeBlockServiceClient"))
 	self._serviceBag:GetService(require("TestQuentyTranslator"))
 end
 

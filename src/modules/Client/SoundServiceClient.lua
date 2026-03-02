@@ -43,7 +43,9 @@ function SoundServiceClient.Init(self: SoundServiceClient, serviceBag: ServiceBa
 	self._currentMusicName = nil
 end
 
-function SoundServiceClient.Start(self: SoundServiceClient): () end
+function SoundServiceClient.Start(self: SoundServiceClient): ()
+	self:PlayMusic("MainTheme")
+end
 
 --[=[
 	Plays a one-shot sound effect by name. The sound is automatically
@@ -58,20 +60,24 @@ function SoundServiceClient.PlaySound(self: SoundServiceClient, soundName: strin
 		return
 	end
 
-	local soundOptions: { [string]: any } = {
-		SoundId = entry.SoundId,
-		Volume = rawget(entry :: any, "Volume") or 0.5,
-	}
+	local sound = Instance.new("Sound")
+	sound.SoundId = entry.SoundId
+	sound.Volume = rawget(entry :: any, "Volume") or 0.5
 	local playbackSpeed = rawget(entry :: any, "PlaybackSpeed")
 	if playbackSpeed then
-		soundOptions.PlaybackSpeed = playbackSpeed
+		sound.PlaybackSpeed = playbackSpeed
 	end
-	local sound = SoundUtils.playFromId(soundOptions)
 
 	local soundGroup = SoundGroupPathUtils.findSoundGroup(entry.Group)
 	if soundGroup then
 		sound.SoundGroup = soundGroup
 	end
+
+	sound.Parent = SoundService
+	sound:Play()
+	sound.Ended:Once(function()
+		sound:Destroy()
+	end)
 end
 
 --[=[

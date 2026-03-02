@@ -7,6 +7,7 @@ local require = require(script.Parent.loader).load(script)
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
+local Binder = require("Binder")
 local CoinConstants = require("CoinConstants")
 local Maid = require("Maid")
 local Remoting = require("Remoting")
@@ -22,6 +23,7 @@ export type CoinServiceClient = typeof(setmetatable(
 		_remoting: any,
 		_soundServiceClient: any,
 		_coinHudClient: any,
+		_coinFloatBinder: any,
 	},
 	{} :: typeof({ __index = CoinServiceClient })
 ))
@@ -34,10 +36,15 @@ function CoinServiceClient.Init(self: CoinServiceClient, serviceBag: ServiceBag.
 	self._soundServiceClient = self._serviceBag:GetService(require("SoundServiceClient"))
 	self._coinHudClient = self._serviceBag:GetService(require("CoinHudClient"))
 
+	-- Binder for floating animation
+	self._coinFloatBinder = self._serviceBag:GetService(Binder.new(CoinConstants.TAG, require("CoinFloat")))
+
 	self._remoting = self._maid:Add(Remoting.new(ReplicatedStorage, "CoinService", Remoting.Realms.CLIENT))
 end
 
 function CoinServiceClient.Start(self: CoinServiceClient): ()
+	self._coinFloatBinder:Start()
+
 	self._maid:GiveTask(self._remoting:Connect(CoinConstants.REMOTE_EVENT_NAME, function(data: any)
 		self:_onCoinCollected(data)
 	end))

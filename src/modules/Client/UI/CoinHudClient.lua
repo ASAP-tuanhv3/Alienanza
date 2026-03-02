@@ -56,7 +56,7 @@ function CoinHudClient._createGui(self: CoinHudClient): ()
 	local frame = Instance.new("Frame")
 	frame.Name = "CoinFrame"
 	frame.AnchorPoint = Vector2.new(0, 0)
-	frame.Position = UDim2.fromOffset(20, 20)
+	frame.Position = UDim2.fromOffset(20, 80)
 	frame.Size = UDim2.fromOffset(160, 50)
 	frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 	frame.BackgroundTransparency = 0.5
