@@ -25,6 +25,10 @@ function TestQuentyServiceClient.Init(self: TestQuentyServiceClient, serviceBag:
 	self._serviceBag:GetService(require("CmdrServiceClient"))
 
 	-- Internal
+	self._serviceBag:GetService(require("CharacterControllerClient"))
+	self._serviceBag:GetService(require("CoinHudClient"))
+	self._serviceBag:GetService(require("CoinServiceClient"))
+	self._serviceBag:GetService(require("GameCameraClient"))
 	self._serviceBag:GetService(require("LoadingScreenServiceClient"))
 	self._serviceBag:GetService(require("PlayerDataClient"))
 	self._serviceBag:GetService(require("SoundServiceClient"))

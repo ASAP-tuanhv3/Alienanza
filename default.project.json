@@ -10,6 +10,18 @@
   ],
   "tree": {
     "$className": "DataModel",
+    "Lighting": {
+      "$ignoreUnknownInstances": true,
+      "$path": "src/lighting"
+    },
+    "MaterialService": {
+      "$ignoreUnknownInstances": true,
+      "$path": "src/materialService"
+    },
+    "Workspace": {
+      "$ignoreUnknownInstances": true,
+      "$path": "src/workspace"
+    },
     "ServerScriptService": {
       "TestQuenty": {
         "$className": "Folder",

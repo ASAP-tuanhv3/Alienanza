@@ -58,6 +58,12 @@ SoundConstants.Sounds = Table.readonly({
 		Looped = true,
 		Volume = 0.3,
 	} :: SoundEntry),
+
+	CoinCollect = Table.readonly({
+		SoundId = "rbxassetid://6895079853",
+		Group = WellKnownSoundGroups.SFX,
+		Volume = 0.5,
+	} :: SoundEntry),
 })
 
 return SoundConstants
